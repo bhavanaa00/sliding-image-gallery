@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="gallery.css">
+    <title>gallery</title>
+</head>
+<body>
+    <div class="gallery-wrap">
+        <img src="images/back.png" id="backbtn">
+        <div class="gallery">
+            <div>
+                <span><img src="images/one.jpg"></span>
+                <span><img src="images/two.jpg"></span>
+                <span><img src="images/three.jpg"></span>
+            </div>
+            <div>
+                <span><img src="images/four.jpg"></span>
+                <span><img src="images/five.jpg"></span>
+                <span><img src="images/six.jpg"></span>
+            </div>
+        </div>
+        <img src="images/next.png" id="nextbtn">
+    </div>
+
+    <script>
+        let scrollcintainer = document.querySelector(".gallery")
+        let backbtn = document.getElementById("backbtn")
+        let nextbtn = document.getElementById("nextbtn")
+
+        scrollcintainer.addEventListener("wheel",(evt) => {
+            evt.preventDefault();
+            scrollcintainer.scrollLeft += evt.deltaY;
+            scrollcintainer.style.scrollbehavior = "smooth";
+        })
+
+        nextbtn.addEventListener("click", ()=>{
+            scrollcintainer.style.scrollbehavior = "smooth";
+            scrollcintainer.scrollLeft += 900
+        })
+
+        backbtn.addEventListener("click", ()=>{
+            scrollcintainer.style.scrollbehavior = "smooth";
+            scrollcintainer.scrollLeft -= 900
+        })
+    </script>
+</body>
+</html>
